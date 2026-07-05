@@ -13,10 +13,10 @@
   /* ============ NAVBAR ============ */
   .navbar{
     position:fixed; top:0; left:0; right:0; z-index:1000;
-    background:rgba(5,6,10,0.9); backdrop-filter:blur(12px);
+    background:rgba(5,6,10,0.95); backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
     padding:1rem 0;
-    box-shadow:0 2px 12px rgba(0,0,0,0.3);
+    box-shadow:0 4px 20px rgba(0,0,0,0.5);
   }
   .nav-container{
     max-width:1200px; margin:0 auto; padding:0 2rem;
@@ -59,7 +59,7 @@
   }
 
   /* ============ HERO ============ */
-  .hero{position:relative; width:100%; overflow:hidden; margin-top:60px;}
+  .hero{position:relative; width:100%; overflow:hidden; padding-top:60px;}
   .stage{
     position:relative;
     width:100%;
@@ -196,16 +196,39 @@
     to{ opacity:1; transform:translateY(0); }
   }
 
-  /* ============ SERVICES SECTION ============ */
+  /* ============ SERVICES SECTION - PREMIUM GRADIENT BACKGROUND ============ */
   .services-section{
-    background:linear-gradient(135deg, rgba(139, 123, 255, 0.05) 0%, rgba(95, 227, 163, 0.02) 100%);
+    background:
+      linear-gradient(135deg, rgba(139, 123, 255, 0.12) 0%, rgba(95, 227, 163, 0.05) 50%, rgba(139, 123, 255, 0.08) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(139, 123, 255, 0.03) 10px,
+        rgba(139, 123, 255, 0.03) 20px
+      );
+    position:relative;
+  }
+  .services-section::before{
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background:radial-gradient(circle at 20% 50%, rgba(139, 123, 255, 0.1) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .services-section::after{
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background:radial-gradient(circle at 80% 80%, rgba(95, 227, 163, 0.08) 0%, transparent 50%);
+    pointer-events:none;
   }
   .services-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem; position:relative; z-index:1;
   }
   .service-card{
-    background:rgba(12,13,19,0.75); backdrop-filter:blur(8px);
-    border:1px solid var(--line); border-radius:0.8em; padding:2em 1.5em;
+    background:rgba(12,13,19,0.6); backdrop-filter:blur(8px);
+    border:1px solid rgba(139,123,255,0.2); border-radius:0.8em; padding:2em 1.5em;
     transition:all 0.3s ease;
     position:relative;
     overflow:hidden;
@@ -218,9 +241,10 @@
     background:linear-gradient(90deg, var(--violet), var(--green), var(--amber));
   }
   .service-card:hover{
-    border-color:var(--violet);
+    border-color:rgba(139,123,255,0.5);
     box-shadow:0 8px 32px rgba(139, 123, 255, 0.15);
     transform:translateY(-4px);
+    background:rgba(12,13,19,0.8);
   }
   .service-card .ic{ width:3em; height:3em; border-radius:0.6em; background:rgba(255,255,255,0.07); display:flex; align-items:center; justify-content:center; font-size:1.5em; margin-bottom:1em; }
   .service-card h3{ font-family:'Space Grotesk',sans-serif; font-size:1.2em; margin-bottom:0.5em; color:#fff; }
@@ -229,20 +253,37 @@
   .service-list li{ font-size:0.9em; color:var(--text-1); margin-bottom:0.6em; padding-left:1.5em; position:relative; }
   .service-list li::before{ content:'✓'; position:absolute; left:0; color:var(--green); font-weight:bold; }
 
-  /* ============ PROCESS SECTION ============ */
+  /* ============ PROCESS SECTION - DARK PREMIUM GRADIENT ============ */
   .process-section{
-    background:linear-gradient(135deg, rgba(5, 6, 10, 0.8) 0%, rgba(12, 13, 19, 0.6) 100%);
+    background:
+      linear-gradient(135deg, rgba(139, 123, 255, 0.08) 0%, rgba(5, 6, 10, 0.95) 50%, rgba(139, 123, 255, 0.05) 100%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 15px,
+        rgba(95, 227, 163, 0.02) 15px,
+        rgba(95, 227, 163, 0.02) 30px
+      );
+    position:relative;
+  }
+  .process-section::before{
+    content:'';
+    position:absolute;
+    bottom:0; right:0; width:50%; height:100%;
+    background:radial-gradient(circle at 100% 100%, rgba(95, 227, 163, 0.1) 0%, transparent 50%);
+    pointer-events:none;
   }
   .process-steps{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; position:relative; z-index:1;
   }
   .step{
-    background:rgba(139, 123, 255, 0.05); border:1px solid rgba(139, 123, 255, 0.2); border-radius:0.8em; padding:2.5em 2em;
+    background:rgba(139, 123, 255, 0.06); border:1px solid rgba(139, 123, 255, 0.25); border-radius:0.8em; padding:2.5em 2em;
     text-align:center; transition:all 0.3s ease;
   }
   .step:hover{
     background:rgba(139, 123, 255, 0.15);
-    border-color:var(--violet);
+    border-color:var(--green);
+    box-shadow:0 8px 32px rgba(139, 123, 255, 0.1);
   }
   .step-number{
     font-family:'Space Grotesk',sans-serif; font-size:3em; font-weight:700; color:var(--violet); margin-bottom:1rem;
@@ -250,20 +291,43 @@
   .step h3{ font-size:1.3em; margin-bottom:0.8em; color:#fff; }
   .step p{ color:var(--text-1); font-size:0.95em; line-height:1.6; }
 
-  /* ============ PROJECTS SECTION ============ */
+  /* ============ PROJECTS SECTION - VIBRANT GRADIENT ============ */
   .projects-section{
-    background:linear-gradient(135deg, rgba(95, 227, 163, 0.03) 0%, rgba(139, 123, 255, 0.05) 100%);
+    background:
+      linear-gradient(135deg, rgba(95, 227, 163, 0.08) 0%, rgba(139, 123, 255, 0.12) 50%, rgba(95, 227, 163, 0.05) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 12px,
+        rgba(95, 227, 163, 0.03) 12px,
+        rgba(95, 227, 163, 0.03) 24px
+      );
+    position:relative;
+  }
+  .projects-section::before{
+    content:'';
+    position:absolute;
+    top:0; left:0; width:40%; height:100%;
+    background:radial-gradient(circle at 0% 50%, rgba(139, 123, 255, 0.1) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .projects-section::after{
+    content:'';
+    position:absolute;
+    bottom:0; right:0; width:40%; height:100%;
+    background:radial-gradient(circle at 100% 100%, rgba(95, 227, 163, 0.1) 0%, transparent 50%);
+    pointer-events:none;
   }
   .projects-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:2rem;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:2rem; position:relative; z-index:1;
   }
   .project-card{
-    background:rgba(12,13,19,0.75); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:1em;
+    background:rgba(12,13,19,0.65); backdrop-filter:blur(8px); border:1px solid rgba(139,123,255,0.2); border-radius:1em;
     overflow:hidden; transition:all 0.3s ease;
     position:relative;
   }
   .project-card:hover{
-    border-color:var(--violet);
+    border-color:rgba(139,123,255,0.5);
     box-shadow:0 12px 40px rgba(139, 123, 255, 0.2);
     transform:translateY(-6px);
   }
@@ -323,12 +387,29 @@
   .link-btn{ font-size:0.9em; font-weight:600; color:var(--violet); transition:color 0.3s ease; }
   .link-btn:hover{ color:var(--green); }
 
-  /* ============ TESTIMONIALS SECTION ============ */
+  /* ============ TESTIMONIALS SECTION - ELEGANT GRADIENT ============ */
   .testimonials-section{
-    background:linear-gradient(135deg, rgba(139, 123, 255, 0.08) 0%, rgba(5, 6, 10, 0.9) 100%);
+    background:
+      linear-gradient(135deg, rgba(139, 123, 255, 0.1) 0%, rgba(5, 6, 10, 0.9) 40%, rgba(139, 123, 255, 0.08) 100%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        rgba(139, 123, 255, 0.02) 20px,
+        rgba(139, 123, 255, 0.02) 40px
+      );
+    position:relative;
+  }
+  .testimonials-section::before{
+    content:'';
+    position:absolute;
+    top:-50%; right:-10%; width:50%; height:150%;
+    background:radial-gradient(circle at 50% 50%, rgba(139, 123, 255, 0.15) 0%, transparent 60%);
+    pointer-events:none;
+    border-radius:50%;
   }
   .testimonials-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem; position:relative; z-index:1;
   }
   .testimonial-card{
     background:rgba(139, 123, 255, 0.08); border:1px solid rgba(139, 123, 255, 0.25); border-radius:0.8em; padding:2em;
@@ -338,6 +419,7 @@
     background:rgba(139, 123, 255, 0.15);
     border-color:var(--green);
     transform:translateY(-4px);
+    box-shadow:0 8px 32px rgba(139, 123, 255, 0.1);
   }
   .stars{ font-size:1.2em; margin-bottom:1em; }
   .testimonial-card p{ color:var(--text-1); font-size:0.95em; line-height:1.7; margin-bottom:1.5em; font-style:italic; }
@@ -346,25 +428,48 @@
   .testimonial-author .name{ font-weight:600; color:#fff; }
   .testimonial-author .title{ font-size:0.85em; color:var(--green); }
 
-  /* ============ PRICING SECTION ============ */
+  /* ============ PRICING SECTION - MODERN GRADIENT ============ */
   .pricing-section{
-    background:linear-gradient(135deg, rgba(5, 6, 10, 0.8) 0%, rgba(139, 123, 255, 0.05) 100%);
+    background:
+      linear-gradient(135deg, rgba(5, 6, 10, 0.85) 0%, rgba(139, 123, 255, 0.1) 50%, rgba(5, 6, 10, 0.9) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 15px,
+        rgba(95, 227, 163, 0.02) 15px,
+        rgba(95, 227, 163, 0.02) 30px
+      );
+    position:relative;
+  }
+  .pricing-section::before{
+    content:'';
+    position:absolute;
+    top:0; right:0; width:50%; height:50%;
+    background:radial-gradient(circle at 100% 0%, rgba(139, 123, 255, 0.12) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .pricing-section::after{
+    content:'';
+    position:absolute;
+    bottom:0; left:0; width:30%; height:50%;
+    background:radial-gradient(circle at 0% 100%, rgba(95, 227, 163, 0.08) 0%, transparent 60%);
+    pointer-events:none;
   }
   .pricing-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem; max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem; max-width:1100px; margin:0 auto; position:relative; z-index:1;
   }
   .pricing-card{
-    background:rgba(12,13,19,0.75); backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:1em; padding:2.5em 2em;
+    background:rgba(12,13,19,0.7); backdrop-filter:blur(8px); border:1px solid rgba(139,123,255,0.2); border-radius:1em; padding:2.5em 2em;
     transition:all 0.3s ease; position:relative;
   }
   .pricing-card:hover{
-    border-color:var(--violet);
+    border-color:rgba(139,123,255,0.5);
     box-shadow:0 12px 40px rgba(139, 123, 255, 0.15);
     transform:translateY(-4px);
   }
   .pricing-card.featured{
-    border-color:var(--violet);
-    background:rgba(139, 123, 255, 0.1);
+    border-color:rgba(139,123,255,0.6);
+    background:rgba(139, 123, 255, 0.12);
     transform:scale(1.05);
   }
   .badge-featured{
@@ -379,21 +484,47 @@
   .pricing-list li{ font-size:0.95em; color:var(--text-1); margin-bottom:0.8em; }
   .pricing-card .btn{ width:100%; justify-content:center; }
 
-  /* ============ CTA SECTION ============ */
+  /* ============ CTA SECTION - PREMIUM GRADIENT ============ */
   .cta-section{
-    background:linear-gradient(135deg, rgba(139, 123, 255, 0.2) 0%, rgba(95, 227, 163, 0.1) 100%);
-    border-top:2px solid rgba(139, 123, 255, 0.3); border-bottom:2px solid rgba(95, 227, 163, 0.3);
+    background:
+      linear-gradient(135deg, rgba(139, 123, 255, 0.25) 0%, rgba(95, 227, 163, 0.12) 50%, rgba(139, 123, 255, 0.15) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.02) 10px,
+        rgba(255, 255, 255, 0.02) 20px
+      );
+    border-top:2px solid rgba(139, 123, 255, 0.4); border-bottom:2px solid rgba(95, 227, 163, 0.3);
     text-align:center;
+    position:relative;
   }
-  .cta-section h2{ font-size:2.5em; margin-bottom:1rem; color:#fff; }
-  .cta-section p{ font-size:1.1em; color:var(--text-1); margin-bottom:2.5rem; }
-  .cta-buttons{ display:flex; gap:1.5em; justify-content:center; flex-wrap:wrap; }
+  .cta-section::before{
+    content:'';
+    position:absolute;
+    top:-200px; left:50%; transform:translateX(-50%);
+    width:600px; height:400px;
+    background:radial-gradient(circle at 50% 50%, rgba(139, 123, 255, 0.15) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .cta-section h2{ font-size:2.5em; margin-bottom:1rem; color:#fff; position:relative; z-index:1; }
+  .cta-section p{ font-size:1.1em; color:var(--text-1); margin-bottom:2.5rem; position:relative; z-index:1; }
+  .cta-buttons{ display:flex; gap:1.5em; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
 
-  /* ============ FOOTER ============ */
+  /* ============ FOOTER - GRADIENT ELEGANCE ============ */
   .footer{
-    background:linear-gradient(135deg, #0a0b0f 0%, rgba(139, 123, 255, 0.03) 100%);
+    background:
+      linear-gradient(135deg, #0a0b0f 0%, rgba(139, 123, 255, 0.05) 50%, #0a0b0f 100%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 25px,
+        rgba(139, 123, 255, 0.01) 25px,
+        rgba(139, 123, 255, 0.01) 50px
+      );
     border-top:1px solid var(--line);
     padding:3rem 0 1.5rem;
+    position:relative;
   }
   .footer-content{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:3rem; margin-bottom:2rem; }
   .footer-col h4{ font-family:'Space Grotesk',sans-serif; font-size:1.1em; margin-bottom:1rem; color:#fff; }
@@ -445,11 +576,12 @@
     .pricing-card.featured{ transform:scale(1); }
   }
   @media (max-width:760px){
+    .hero{ padding-top:60px; }
     .stage::before{ display:none; }
     .stage{ height:auto; font-size:15px; }
     .stage-inner{
       position:static;
-      background:linear-gradient(rgba(5,6,10,.6),rgba(5,6,10,.85)), url('hero-bg.jpg') center/cover no-repeat;
+      background:linear-gradient(rgba(5,6,10,.7),rgba(5,6,10,.9)), url('hero-bg.jpg') center/cover no-repeat;
       display:flex; flex-direction:column; padding:24px 20px 40px; gap:14px;
     }
     .ov{ position:static; width:100% !important; height:auto !important; margin-bottom:14px; }
